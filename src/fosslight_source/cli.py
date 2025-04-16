@@ -71,6 +71,7 @@ def main() -> None:
     parser.add_argument('-e', '--exclude', nargs='*', required=False, default=[])
     parser.add_argument('--no_correction', action='store_true', required=False)
     parser.add_argument('--correct_fpath', nargs=1, type=str, required=False)
+    parser.add_argument('--review', nargs=1, type=str, required=False)
 
     args = parser.parse_args()
 
@@ -98,6 +99,9 @@ def main() -> None:
     correct_filepath = path_to_scan
     if args.correct_fpath:
         correct_filepath = ''.join(args.correct_fpath)
+    if args.review:
+        print("Create an error")
+      indent_err = True
 
     time_out = args.timeout
     core = args.cores
