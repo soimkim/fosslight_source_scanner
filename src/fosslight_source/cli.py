@@ -71,6 +71,8 @@ def main() -> None:
     parser.add_argument('-e', '--exclude', nargs='*', required=False, default=[])
     parser.add_argument('--no_correction', action='store_true', required=False)
     parser.add_argument('--correct_fpath', nargs=1, type=str, required=False)
+parser.add_argument('--test_review', nargs=1, type=str, required=False)
+    parser.add_argument('--correct_fpath', nargs=1, type=str, required=False)
 
     args = parser.parse_args()
 
@@ -80,6 +82,8 @@ def main() -> None:
         print_version(PKG_NAME)
     if not args.path:
         path_to_scan = os.getcwd()
+    elif args.test_review:
+      print("ERROR !!")
     else:
         path_to_scan = ''.join(args.path)
     if args.exclude:
